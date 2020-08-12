@@ -139,13 +139,13 @@ function rockPaperScissors(playerChoice) {
     }
     if (playerChoice === 'scissors') {
         playerChoice = 0.99;
-        if (playerChoice === 0.99 && (computer > 0 && computer <0.33)){
+        if (playerChoice === 0.99 && (computer > 0 && computer < 0.33)) {
             winOrLose = 'You Lose!';
         }
-        else if (computer === playerChoice){
+        else if (computer === playerChoice) {
             winOrLose = 'Draw';
         }
-        else{
+        else {
             winOrLose = 'You Win!';
         }
     }
@@ -178,9 +178,12 @@ console.log(feetToCm(20));
 // 99 bottles of soda on the wall
 // create a function called annoyingSong
 // the function should take a starting number as an argument and count down - at each iteration it should log (number) bottles of soda on the wall, (number) bottles of soda, take one down pass it around (number left over) bottles of soda on the wall`
-for (i = 99; i === 0; i--) {
-
+function annoyingSong(bottles) {
+    for (let i = bottles; i > 0; i--) {
+        console.log(`${i} bottles of soda on the wall ${i} bottles of soda, take one down pass it around ${i - 1} bottles of soda on the wall`)
+    }
 }
+annoyingSong(8);
 
 
 
@@ -194,8 +197,26 @@ for (i = 99; i === 0; i--) {
 //60s should be D 
 //and anything below 60 should be F
 
-
-
+function grading(percent) {
+    let grade = 0;
+    if (percent >= 90) {
+        grade = 'A';
+    }
+    else if (percent >= 80 && percent <= 89) {
+        grade = 'B';
+    }
+    else if (percent >= 70 && percent <= 79) {
+        grade = 'C';
+    }
+    else if (percent >= 60 && percent <= 69) {
+        grade = 'D';
+    }
+    else {
+        grade = 'F';
+    }
+    return grade;
+}
+console.log(grading(27));
 
 
 /************************************************************** Stretch **************************************************************/
@@ -203,7 +224,17 @@ for (i = 99; i === 0; i--) {
 // Hint - you may need to study tomorrow's traning kit on arrays 
 // try looking up the .includes() method
 
-
+function vowelCounter (str){
+    const vowelList = 'AEIOUaeiou';
+    let numVowels = 0;
+    for (let i = 0; i < str.length; i++){
+        if (vowelList.indexOf(str[i]) !== -1){
+            numVowels = numVowels + 1;
+        }
+    }
+    return numVowels;
+}
+console.log(vowelCounter('Washington County'));
 
 
 
@@ -212,6 +243,49 @@ for (i = 99; i === 0; i--) {
 //update your rock papers sissors code below to take a prompt from a user using the window object
 
 
+function rockPaperScissors2(playerChoice) {
+    let computer = Math.random();
+    let winOrLose = 0;
+    if (playerChoice === 'rock') {
+        playerChoice = 0.33;
+        if (playerChoice === 0.33 && (computer > 0.33 && computer < 0.67)) {
+            winOrLose = 'You Lose!';
+        }
+        else if (playerChoice === computer) {
+            winOrLose = 'Draw';
+        }
+        else {
+            winOrLose = 'You Win!';
+        }
+    }
+    if (playerChoice === 'paper') {
+        playerChoice = 0.67;
+        if (playerChoice === 0.67 && (computer > 0.67 && computer < 0.99)) {
+            winOrLose = 'You Lose!';
+        }
+        else if (playerChoice === computer) {
+            winOrLose = 'Draw';
+        }
+        else {
+            winOrLose = 'You Win!';
+        }
 
+    }
+    if (playerChoice === 'scissors') {
+        playerChoice = 0.99;
+        if (playerChoice === 0.99 && (computer > 0 && computer < 0.33)) {
+            winOrLose = 'You Lose!';
+        }
+        else if (computer === playerChoice) {
+            winOrLose = 'Draw';
+        }
+        else {
+            winOrLose = 'You Win!';
+        }
+    }
+    return winOrLose;
+}
+
+console.log(rockPaperScissors2(prompt('Enter rock, paper, or scissors')));
 
 
