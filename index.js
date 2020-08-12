@@ -112,43 +112,20 @@ console.log(dogFeeder(0.39, 18));
 function rockPaperScissors(playerChoice) {
     let computer = Math.random();
     let winOrLose = 0;
-    if (playerChoice === 'rock') {
-        playerChoice = 0.33;
-        if (playerChoice === 0.33 && (computer > 0.33 && computer < 0.67)) {
-            winOrLose = 'You Lose!';
-        }
-        else if (playerChoice === computer) {
-            winOrLose = 'Draw';
-        }
-        else {
-            winOrLose = 'You Win!';
-        }
+    if (computer < 0.33){
+        computer = 'rock'
+    }else if (computer > 0.33 && computer < 0.67){
+        computer = 'paper'
+    }else if (computer > 0.67){
+        computer = 'scissors'
     }
-    if (playerChoice === 'paper') {
-        playerChoice = 0.67;
-        if (playerChoice === 0.67 && (computer > 0.67 && computer < 0.99)) {
-            winOrLose = 'You Lose!';
+        if (playerChoice === computer){
+            winOrLose = 'Draw!'
+        }else if ((playerChoice === 'rock' && computer === 'paper') || (playerChoice === 'paper' && computer === 'scissors') || (playerChoice === 'scissors' && computer === 'rock')){
+            winOrLose = 'You Lose!'
+        }else if ((playerChoice === 'rock' && computer === 'scissors') || (playerChoice === 'paper' && computer === 'rock') || (playerChoice === 'scissors' && computer === 'paper')){
+            winOrLose = 'You Win!'
         }
-        else if (playerChoice === computer) {
-            winOrLose = 'Draw';
-        }
-        else {
-            winOrLose = 'You Win!';
-        }
-
-    }
-    if (playerChoice === 'scissors') {
-        playerChoice = 0.99;
-        if (playerChoice === 0.99 && (computer > 0 && computer < 0.33)) {
-            winOrLose = 'You Lose!';
-        }
-        else if (computer === playerChoice) {
-            winOrLose = 'Draw';
-        }
-        else {
-            winOrLose = 'You Win!';
-        }
-    }
     return winOrLose;
 }
 
